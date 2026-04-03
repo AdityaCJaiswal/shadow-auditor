@@ -1,0 +1,39 @@
+2026-04-03 22:40:38.681 [main] INFO  org.auditor.ShadowAuditorApp - Starting ShadowAuditorApp using Java 26 with PID 2020 (D:\Projects\shadow-auditor\backend\target\classes started by adity in D:\Projects\shadow-auditor\backend)
+2026-04-03 22:40:38.685 [main] INFO  org.auditor.ShadowAuditorApp - No active profile set, falling back to 1 default profile: "default"
+2026-04-03 22:40:39.383 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-03 22:40:39.391 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2026-04-03 22:40:39.393 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-03 22:40:39.393 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.18]
+2026-04-03 22:40:39.463 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 737 ms
+2026-04-03 22:40:39.508 [main] INFO  org.auditor.agents.CFOAgent - [CFOAgent] Building root CFO agent with model: gemini-2.5-flash
+2026-04-03 22:40:39.509 [main] INFO  org.auditor.agents.AuditorAgent - [AuditorAgent] Building specialist agent with model: gemini-2.5-flash
+2026-04-03 22:40:39.565 [main] INFO  org.auditor.agents.AuditorAgent - [AuditorAgent] Agent built successfully.
+2026-04-03 22:40:39.565 [main] INFO  org.auditor.agents.NegotiatorAgent - [NegotiatorAgent] Building specialist agent with model: gemini-2.5-flash
+2026-04-03 22:40:39.565 [main] INFO  org.auditor.agents.NegotiatorAgent - [NegotiatorAgent] Agent built successfully.
+2026-04-03 22:40:39.566 [main] INFO  org.auditor.agents.CFOAgent - [CFOAgent] Root agent built. Sub-agents registered: AuditorAgent, NegotiatorAgent
+2026-04-03 22:40:40.002 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2026-04-03 22:40:40.015 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-03 22:40:40.019 [main] INFO  org.auditor.ShadowAuditorApp - Started ShadowAuditorApp in 1.605 seconds (process running for 2.737)
+2026-04-03 22:40:40.022 [main] INFO  org.auditor.ShadowAuditorApp - API key resolved successfully.
+2026-04-03 22:40:40.022 [main] INFO  org.auditor.ShadowAuditorApp - Target PDF: src/main/resources/sample_expenses.pdf
+2026-04-03 22:40:40.022 [main] INFO  org.auditor.ShadowAuditorApp - PIIShield interceptor initialized.
+2026-04-03 22:40:40.022 [main] INFO  org.auditor.agents.CFOAgent - [CFOAgent] Building root CFO agent with model: gemini-2.5-flash
+2026-04-03 22:40:40.022 [main] INFO  org.auditor.agents.AuditorAgent - [AuditorAgent] Building specialist agent with model: gemini-2.5-flash
+2026-04-03 22:40:40.023 [main] INFO  org.auditor.agents.AuditorAgent - [AuditorAgent] Agent built successfully.
+2026-04-03 22:40:40.023 [main] INFO  org.auditor.agents.NegotiatorAgent - [NegotiatorAgent] Building specialist agent with model: gemini-2.5-flash
+2026-04-03 22:40:40.023 [main] INFO  org.auditor.agents.NegotiatorAgent - [NegotiatorAgent] Agent built successfully.
+2026-04-03 22:40:40.023 [main] INFO  org.auditor.agents.CFOAgent - [CFOAgent] Root agent built. Sub-agents registered: AuditorAgent, NegotiatorAgent
+2026-04-03 22:40:40.023 [main] INFO  org.auditor.ShadowAuditorApp - InMemoryRunner initialized with app: ShadowAuditorApp
+2026-04-03 22:40:40.030 [main] INFO  org.auditor.ShadowAuditorApp - Session created: 392b555a-caba-46e8-99be-d43d27c637ba
+2026-04-03 22:40:45.289 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Parsing PDF: src/main/resources/sample_expenses.pdf
+2026-04-03 22:40:45.660 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Parsed 20 transactions from PDF
+2026-04-03 22:41:29.196 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Running anomaly detection...
+2026-04-03 22:41:29.217 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Anomaly detection complete. Found 12 anomalies
+2026-04-03 22:42:04.723 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Categorizing spending patterns...
+2026-04-03 22:42:04.729 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Categorization complete. 14 categories, 17 vendors
+2026-04-03 22:42:31.234 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-03 22:42:31.236 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-03 22:42:31.237 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-03 22:42:51.265 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Generating cost reduction suggestions...
+2026-04-03 22:43:04.958 [http-nio-8080-exec-4] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Parsing PDF: src/main/resources/sample_expenses.pdf
+2026-04-03 22:43:04.981 [http-nio-8080-exec-4] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Parsed 20 transactions from PDF

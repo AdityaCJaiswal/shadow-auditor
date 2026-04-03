@@ -1,0 +1,44 @@
+2026-03-30 00:00:23.217 [main] INFO  org.auditor.ShadowAuditorApp - API key resolved successfully.
+2026-03-30 00:00:23.225 [main] INFO  org.auditor.ShadowAuditorApp - Target PDF: src/main/resources/sample_expenses.pdf
+2026-03-30 00:00:23.230 [main] INFO  org.auditor.ShadowAuditorApp - PIIShield interceptor initialized.
+2026-03-30 00:00:23.231 [main] INFO  org.auditor.agents.CFOAgent - [CFOAgent] Building root CFO agent with model: gemini-2.5-flash
+2026-03-30 00:00:23.232 [main] INFO  org.auditor.agents.AuditorAgent - [AuditorAgent] Building specialist agent with model: gemini-2.5-flash
+2026-03-30 00:00:23.566 [main] INFO  org.auditor.agents.AuditorAgent - [AuditorAgent] Agent built successfully.
+2026-03-30 00:00:23.567 [main] INFO  org.auditor.agents.NegotiatorAgent - [NegotiatorAgent] Building specialist agent with model: gemini-2.5-flash
+2026-03-30 00:00:23.568 [main] INFO  org.auditor.agents.NegotiatorAgent - [NegotiatorAgent] Agent built successfully.
+2026-03-30 00:00:23.569 [main] INFO  org.auditor.agents.CFOAgent - [CFOAgent] Root agent built. Sub-agents registered: AuditorAgent, NegotiatorAgent
+2026-03-30 00:00:23.576 [main] INFO  org.auditor.ShadowAuditorApp - InMemoryRunner initialized with app: ShadowAuditorApp
+2026-03-30 00:00:23.620 [main] INFO  org.auditor.ShadowAuditorApp - Session created: 3d97deb6-1227-495b-9e4b-235eeb3b68db
+2026-03-30 00:00:29.744 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Parsing PDF: src/main/resources/sample_expenses.pdf
+2026-03-30 00:00:30.220 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Parsed 20 transactions from PDF
+2026-03-30 01:02:48.207 [main] INFO  org.auditor.ShadowAuditorApp - API key resolved successfully.
+2026-03-30 01:02:48.209 [main] INFO  org.auditor.ShadowAuditorApp - Target PDF: src/main/resources/sample_expenses.pdf
+2026-03-30 01:02:48.217 [main] INFO  org.auditor.ShadowAuditorApp - PIIShield interceptor initialized.
+2026-03-30 01:02:48.218 [main] INFO  org.auditor.agents.CFOAgent - [CFOAgent] Building root CFO agent with model: gemini-2.5-flash
+2026-03-30 01:02:48.219 [main] INFO  org.auditor.agents.AuditorAgent - [AuditorAgent] Building specialist agent with model: gemini-2.5-flash
+2026-03-30 01:02:48.542 [main] INFO  org.auditor.agents.AuditorAgent - [AuditorAgent] Agent built successfully.
+2026-03-30 01:02:48.544 [main] INFO  org.auditor.agents.NegotiatorAgent - [NegotiatorAgent] Building specialist agent with model: gemini-2.5-flash
+2026-03-30 01:02:48.544 [main] INFO  org.auditor.agents.NegotiatorAgent - [NegotiatorAgent] Agent built successfully.
+2026-03-30 01:02:48.546 [main] INFO  org.auditor.agents.CFOAgent - [CFOAgent] Root agent built. Sub-agents registered: AuditorAgent, NegotiatorAgent
+2026-03-30 01:02:48.551 [main] INFO  org.auditor.ShadowAuditorApp - InMemoryRunner initialized with app: ShadowAuditorApp
+2026-03-30 01:02:48.601 [main] INFO  org.auditor.ShadowAuditorApp - Session created: 88a9cdaf-e7ba-4ecc-a084-840ed2223dbf
+2026-03-30 01:02:54.336 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Parsing PDF: src/main/resources/sample_expenses.pdf
+2026-03-30 01:02:54.916 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Parsed 20 transactions from PDF
+2026-03-30 01:07:12.597 [main] INFO  org.auditor.ShadowAuditorApp - API key resolved successfully.
+2026-03-30 01:07:12.598 [main] INFO  org.auditor.ShadowAuditorApp - Target PDF: src/main/resources/sample_expenses.pdf
+2026-03-30 01:07:12.604 [main] INFO  org.auditor.ShadowAuditorApp - PIIShield interceptor initialized.
+2026-03-30 01:07:12.605 [main] INFO  org.auditor.agents.CFOAgent - [CFOAgent] Building root CFO agent with model: gemini-2.5-flash
+2026-03-30 01:07:12.606 [main] INFO  org.auditor.agents.AuditorAgent - [AuditorAgent] Building specialist agent with model: gemini-2.5-flash
+2026-03-30 01:07:12.921 [main] INFO  org.auditor.agents.AuditorAgent - [AuditorAgent] Agent built successfully.
+2026-03-30 01:07:12.923 [main] INFO  org.auditor.agents.NegotiatorAgent - [NegotiatorAgent] Building specialist agent with model: gemini-2.5-flash
+2026-03-30 01:07:12.923 [main] INFO  org.auditor.agents.NegotiatorAgent - [NegotiatorAgent] Agent built successfully.
+2026-03-30 01:07:12.926 [main] INFO  org.auditor.agents.CFOAgent - [CFOAgent] Root agent built. Sub-agents registered: AuditorAgent, NegotiatorAgent
+2026-03-30 01:07:12.931 [main] INFO  org.auditor.ShadowAuditorApp - InMemoryRunner initialized with app: ShadowAuditorApp
+2026-03-30 01:07:12.982 [main] INFO  org.auditor.ShadowAuditorApp - Session created: 3a9dc36c-ab48-4405-921b-b46044831701
+2026-03-30 01:07:18.241 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Parsing PDF: src/main/resources/sample_expenses.pdf
+2026-03-30 01:07:18.775 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Parsed 20 transactions from PDF
+2026-03-30 01:08:50.706 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Running anomaly detection...
+2026-03-30 01:08:50.741 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Anomaly detection complete. Found 12 anomalies
+2026-03-30 01:09:47.836 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Categorizing spending patterns...
+2026-03-30 01:09:47.853 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Categorization complete. 14 categories, 17 vendors
+2026-03-30 01:10:01.453 [main] INFO  org.auditor.tools.FinanceTools - [FinanceTools] Generating cost reduction suggestions...

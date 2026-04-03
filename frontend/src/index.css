@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap');
+
+:root {
+  /* Core Theme */
+  --color-background-primary: #121212;
+  --color-background-secondary: #1A1A1A;
+  --color-background-tertiary: #242424;
+  --color-border-secondary: #333333;
+  --color-border-tertiary: #2A2A2A;
+  
+  /* Text */
+  --color-text-primary: #F0F0F0;
+  --color-text-secondary: #A0A0A0;
+  --color-text-tertiary: #666666;
+  
+  /* Status Colors */
+  --color-background-success: #112A1C;
+  --color-text-success: #4ADE80;
+  --color-border-success: #1E4D33;
+  
+  --color-background-danger: #3B1212;
+  --color-text-danger: #F87171;
+  --color-border-danger: #6B2121;
+  
+  --color-background-warning: #36220B;
+  --color-text-warning: #FBBF24;
+  
+  --color-background-info: #0F2537;
+  --color-text-info: #60A5FA;
+
+  /* Layout */
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+}
+
+body {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-primary);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+* { box-sizing: border-box; }

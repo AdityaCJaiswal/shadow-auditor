@@ -12,7 +12,8 @@ import com.google.genai.types.Part;
 import io.reactivex.rxjava3.core.Flowable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.List;
 import java.util.Scanner;
 
@@ -46,6 +47,7 @@ import java.util.Scanner;
  *  │  Streamed Response to Console                            │
  *  └─────────────────────────────────────────────────────────┘
  */
+@SpringBootApplication
 public class ShadowAuditorApp {
 
     private static final Logger log = LoggerFactory.getLogger(ShadowAuditorApp.class);
@@ -64,6 +66,8 @@ public class ShadowAuditorApp {
     private static final String DIM    = "\u001B[2m";
 
     public static void main(String[] args) {
+        SpringApplication.run(ShadowAuditorApp.class, args);
+        System.out.println("✔ Shadow Auditor API running on http://localhost:8080");
         printBanner();
 
         // 1. Validate API key early
