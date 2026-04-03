@@ -7,56 +7,75 @@ An AI-powered multi-agent system built on **Google ADK (Java 0.2.x)** that monit
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                        USER / CLI INPUT                          │
-│                    (PDF path or free-form query)                  │
-└──────────────────────────────┬──────────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────────┐
-│               PIIShield (beforeModelCallback)                    │
-│  Regex-masks: credit cards, SSN, IBAN, routing#, emails, phones  │
-│  Fires on EVERY outbound LLM prompt — zero PII leaks             │
-└──────────────────────────────┬──────────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                   CFO Root Agent (LlmAgent)                      │
-│                  "The C-Suite Orchestrator"                       │
-│         Gemini model · PIIShield · AgentTool x2                  │
-│                                                                   │
-│   ┌──────────────────────┐    ┌──────────────────────────────┐  │
-│   │   AuditorAgent       │    │      NegotiatorAgent         │  │
-│   │  (AgentTool)         │    │       (AgentTool)            │  │
-│   │                      │    │                              │  │
-│   │ • Parse PDF (PDFBox) │    │ • Tier-down emails           │  │
-│   │ • Detect anomalies   │    │ • Cancellation notices       │  │
-│   │ • Categorize spend   │    │ • Price dispute letters      │  │
-│   │ • Cost suggestions   │    │ • Renegotiation requests     │  │
-│   └─────────┬────────────┘    └──────────────────────────────┘  │
-│             │                                                     │
-│   ┌─────────▼────────────┐                                       │
-│   │    FinanceTools      │  ← Custom Java FunctionTool           │
-│   │  (4 ADK tools)       │                                       │
-│   │                      │                                       │
-│   │ parsePdfExpenses()   │  ← Apache PDFBox 3.x                 │
-│   │ detectAnomalies()    │  ← Spike/dup/unknown vendor logic     │
-│   │ categorizeSpending() │  ← Category/vendor bucketing          │
-│   │ generateCostSuggestions() │                                  │
-│   └──────────────────────┘                                       │
-└──────────────────────────────┬──────────────────────────────────┘
-                               │
-                               ▼
-┌─────────────────────────────────────────────────────────────────┐
-│           InMemoryRunner + InMemorySessionService                 │
-│                  Streamed output to console                       │
-└─────────────────────────────────────────────────────────────────┘
+The Shadow Auditor is a 3-agent hierarchical system built on Google ADK. Every request flows through a PII masking interceptor before any LLM call, then through a root CFO orchestrator that delegates to two specialists via `AgentTool`.
+```mermaid
+flowchart TD
+    A([👤 User / CLI\nPDF path or query])
+
+    A --> B
+
+    subgraph SHIELD ["🛡️ Security Layer"]
+        B["PIIShield — beforeModelCallback\nMasks: card numbers · SSN · IBAN · routing · email · phone\nFires on ALL agent prompts before any LLM call"]
+    end
+
+    SHIELD --> C
+
+    subgraph ROOT ["🧠 CFO Root Agent  ·  LlmAgent  ·  Gemini 2.5 Flash"]
+        C["Orchestrator\nDelegates via AgentTool · Synthesizes Executive Briefing"]
+    end
+
+    C -->|AgentTool| D
+    C -->|AgentTool| E
+
+    subgraph AUDITOR ["🔍 Auditor Agent  ·  Specialist #1"]
+        D["Forensic expense analyst\noutputKey: audit_report"]
+    end
+
+    subgraph NEGOTIATOR ["✉️ Negotiator Agent  ·  Specialist #2"]
+        E["Vendor action email drafter\noutputKey: vendor_emails"]
+    end
+
+    D -->|FunctionTool| F
+
+    subgraph TOOLS ["⚙️ FinanceTools  ·  Custom Java Logic"]
+        F1["parsePdfExpenses\nApache PDFBox 3.x"]
+        F2["detectAnomalies\nSpike · Duplicate · Unknown vendor"]
+        F3["categorizeSpending\nBy category · vendor · month"]
+        F4["generateCostSuggestions\nPrioritized recommendations"]
+        F1 --- F2 --- F3 --- F4
+    end
+
+    F --> F1
+
+    E --> G["Tier-down · Cancellation\nDispute · Renegotiation emails"]
+
+    TOOLS --> H
+    G --> H
+
+    subgraph RUNNER ["🔄 ADK Orchestration Layer"]
+        H["InMemoryRunner + InMemorySessionService\nEvent streaming · Session state · RxJava Flowable output"]
+    end
+
+    H --> I([📊 Executive Briefing\nStreamed to console · token by token])
+
+    style SHIELD fill:#fff4f1,stroke:#993C1D,color:#712B13
+    style ROOT fill:#f3f1fe,stroke:#534AB7,color:#3C3489
+    style AUDITOR fill:#e1f5ee,stroke:#0F6E56,color:#085041
+    style NEGOTIATOR fill:#faeeda,stroke:#854F0B,color:#633806
+    style TOOLS fill:#e6f1fb,stroke:#185FA5,color:#0C447C
+    style RUNNER fill:#f1efe8,stroke:#5F5E5A,color:#444441
 ```
 
----
+| Layer | Component | Role |
+|-------|-----------|------|
+| Security | `PIIShield` | `beforeModelCallback` — regex-masks PII before every LLM call |
+| Orchestration | `CFOAgent` | Root `LlmAgent` — delegates via `AgentTool`, produces briefing |
+| Specialist | `AuditorAgent` | PDF parsing, anomaly detection, spend categorization |
+| Specialist | `NegotiatorAgent` | Drafts vendor action emails from audit findings |
+| Tools | `FinanceTools` | 4 `@Schema`-annotated Java functions registered as `FunctionTool` |
+| Runtime | `InMemoryRunner` | ADK event streaming + `InMemorySessionService` session management |
 
 ## 🧩 Component Reference
 
